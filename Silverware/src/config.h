@@ -65,7 +65,9 @@
 // *************.01f = 1% of stick range - comment out to disable
 #define STICKS_DEADBAND .01f
 
-
+// *************Betaflight style throttle mid and expo curve, leave expo at 0.0f for linear throttle
+#define THROTTLE_MID 1.0f
+#define THROTTLE_EXPO 0.7f
 
 
 //**********************************************************************************************************************

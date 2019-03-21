@@ -427,6 +427,19 @@ if (aux[LEVELMODE]&&!acro_override){
 				throttle =  (float) IDLE_THR + rx[3] * (1.0f - (float) IDLE_THR);						//            						throttle range is mapped from idle throttle value to 100%							  
 				if ((rx[3] > THROTTLE_SAFETY) && (in_air == 0)) in_air = 1; 			  				//            						change the state of in air flag when first crossing the throttle 
 			}																																							//            						safety value to indicate craft has taken off for mix increase safety
+			
+			// Apply throttle curve
+			if (THROTTLE_EXPO > 0.0f && throttle > 0.0f && throttle < 1.0f){
+				if (throttle > THROTTLE_MID) {	
+					float range = 1.0f - THROTTLE_MID;
+					float value = (throttle - THROTTLE_MID) / range;
+					throttle = THROTTLE_MID + (range * rcexpo(value, THROTTLE_EXPO));
+				} else if (throttle < THROTTLE_MID) {    
+					float range = THROTTLE_MID;
+					float value = (throttle - THROTTLE_MID) / range;
+					throttle = THROTTLE_MID + (range * rcexpo(value, THROTTLE_EXPO));
+				}
+			}
 	}
 
 #ifdef STICK_TRAVEL_CHECK																				//This feature completely disables throttle and allows visual feedback if control inputs reach full throws
