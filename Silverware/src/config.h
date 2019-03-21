@@ -21,8 +21,8 @@
 //***********************************************RATES & EXPO SETTINGS**************************************************
 
 // *************Select your preffered rate calculation format (define only one)
-#define SILVERWARE_RATES
-//#define BETAFLIGHT_RATES
+//#define SILVERWARE_RATES
+#define BETAFLIGHT_RATES
 
 #ifdef SILVERWARE_RATES
 // *************rate in deg/sec
@@ -44,10 +44,10 @@
 #ifdef BETAFLIGHT_RATES
 #define BF_RC_RATE_ROLL 1.00
 #define BF_RC_RATE_PITCH 1.00
-#define BF_RC_RATE_YAW 1.00
-#define BF_SUPER_RATE_ROLL 0.70
-#define BF_SUPER_RATE_PITCH 0.70
-#define BF_SUPER_RATE_YAW 0.70
+#define BF_RC_RATE_YAW 2.10
+#define BF_SUPER_RATE_ROLL 0.80
+#define BF_SUPER_RATE_PITCH 0.80
+#define BF_SUPER_RATE_YAW 0.25
 #define BF_EXPO_ROLL 0.00
 #define BF_EXPO_PITCH 0.00
 #define BF_EXPO_YAW 0.00
